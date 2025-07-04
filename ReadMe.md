@@ -178,14 +178,21 @@ $ xhost +local:root
 Then build the Docker container with
 
 ```shell
-$ docker compose -f docker-compose-gui.yml build
+$ docker compose -f docker/docker-compose-gui.yml build
 ```
 or directly with the [`devcontainer` in Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers). For Nvidia graphic cards the file `docker-compose-gui-nvidia.yml` in combination with the [`nvidia-container-runtime`](https://nvidia.github.io/nvidia-container-runtime/) has to be used instead.
 After it is done building **connect the Realsense**, start the container
 
 ```shell
-$ docker compose -f docker-compose-gui.yml up
+$ docker compose -f docker/docker-compose-gui.yml up -d
 ```
+if you want to mount your folders,
+```shell
+cp .env-example .env
+# Modify path in .env file for folder mounting
+docker compose --env-file .env -f docker/docker-compose-gui.yml up -d
+```
+
 and see if you can **detect it from inside the Docker** by typing inside the Docker
 ```shell
 $ rs-enumerate-devices --compact
