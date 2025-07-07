@@ -217,6 +217,11 @@ to find out what display type has to be selected in Rviz.
 
 ![Rviz2 preview](./media/preview.png)
 
+To record data as a rosbag,
+```shell
+$ ros2 bag record -o sample /camera/camera/color/camera_info /camera/camera/color/image_raw /camera/camera/depth/camera_info /camera/camera/depth/image_rect_raw /camera/camera/depth/color/points /camera/camera/imu
+```
+
 
 
 ## 3. Debugging
