@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   realsense_ros2:
+    privileged: true
     extends:
       file: docker-compose.yml
       service: realsense_ros2
@@ -10,3 +11,5 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ${DATA_DIR}:/data:rw
+    command: sleep infinity
