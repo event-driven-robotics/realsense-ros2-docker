@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   realsense_ros2:
+    image: realsense-ros2:latest
     build:
       context: ..
       dockerfile: docker/Dockerfile

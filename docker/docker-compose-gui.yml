@@ -2,6 +2,8 @@ version: "3.9"
 services:
   realsense_ros2:
     privileged: true
+    image: realsense-ros2:latest
+    container_name: realsense_ros2
     extends:
       file: docker-compose.yml
       service: realsense_ros2
